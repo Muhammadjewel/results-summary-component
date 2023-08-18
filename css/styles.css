@@ -307,6 +307,10 @@ select:-webkit-autofill:focus {
   font-weight: bold;
 }
 
+.stats-list__item-percent-label {
+  display: none;
+}
+
 .stats-list__item-max {
   font-weight: bold;
   color: rgba(48, 59, 89, 0.5);
@@ -434,5 +438,18 @@ only screen and (                min-resolution: 2dppx) {
 
   .summary-box {
     padding: 24px 16px;
+  }
+
+  .stats-list__item-result {
+    margin-right: 2px;
+  }
+
+  .stats-list__item-percent-label {
+    display: block;
+    color: #303b59;
+  }
+
+  .stats-list__item-max {
+    display: none;
   }
 }
