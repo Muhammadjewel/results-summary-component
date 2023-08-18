@@ -208,7 +208,7 @@ select:-webkit-autofill:focus {
   color: #fff;
 }
 
-.result-circle__of {
+.result-circle__max {
   font-weight: 700;
   opacity: 0.5168;
 }
