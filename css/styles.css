@@ -376,6 +376,7 @@ only screen and (                min-resolution: 2dppx) {
     max-width: 100%;
     margin: 0;
     box-shadow: none;
+    border-radius: 0;
   }
 
   .result-circle {
