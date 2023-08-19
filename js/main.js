@@ -23,13 +23,45 @@ const data = [
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  const elsStatsListItem = document.querySelectorAll('.stats-list__item');
+  const elStatsList = document.querySelector('.stats-list');
+  const elStatsContentFragment = document.createDocumentFragment();
 
-  elsStatsListItem.forEach(function (elStatsItem, index) {
-    elStatsItem.classList.add(`stats-list__item--${data[index].category.toLowerCase()}`);
-    elStatsItem.querySelector('.stats-list__item-icon').src = data[index].icon;
-    elStatsItem.querySelector('.stats-list__item-title').textContent = data[index].category;
-    elStatsItem.querySelector('.stats-list__item-result').textContent = data[index].score;
+  data.forEach(function (item) {
+    const elStatsItem = document.createElement('li');
+    elStatsItem.classList.add('stats-list__item', `stats-list__item--${item.category.toLowerCase()}`)
+
+    const elStatsItemImg = document.createElement('img');
+    elStatsItemImg.classList.add('stats-list__item-icon');
+    elStatsItemImg.src = item.icon;
+    elStatsItemImg.alt = "";
+    elStatsItemImg.width = "20";
+    elStatsItemImg.height = "20";
+    elStatsItemImg.ariaHidden = true;
+
+    const elStatsItemTitle = document.createElement('span');
+    elStatsItemTitle.classList.add('stats-list__item-title');
+    elStatsItemTitle.textContent = item.category;
+
+    const elStatsItemResult = document.createElement('span');
+    elStatsItemResult.classList.add('stats-list__item-result');
+    elStatsItemResult.textContent = item.score;
+
+    const elStatsItemPercentLabel = document.createElement('span');
+    elStatsItemPercentLabel.classList.add('stats-list__item-percent-label');
+    elStatsItemPercentLabel.textContent = "%";
+
+    const elStatsItemMax = document.createElement('span');
+    elStatsItemMax.classList.add('stats-list__item-max');
+    elStatsItemMax.textContent = "/ 100";
+
+    elStatsItem.appendChild(elStatsItemImg);
+    elStatsItem.appendChild(elStatsItemTitle);
+    elStatsItem.appendChild(elStatsItemResult);
+    elStatsItem.appendChild(elStatsItemPercentLabel);
+    elStatsItem.appendChild(elStatsItemMax);
+
+    elStatsContentFragment.appendChild(elStatsItem);
   });
 
+  elStatsList.appendChild(elStatsContentFragment);
 });
