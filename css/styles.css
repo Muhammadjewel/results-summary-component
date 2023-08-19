@@ -321,6 +321,8 @@ select:-webkit-autofill:focus {
 
 /* SUMMARY-BOX */
 .summary-box {
+  display: flex;
+  flex-direction: column;
   width: 50%;
   padding: 40px;
 }
@@ -332,6 +334,7 @@ select:-webkit-autofill:focus {
 }
 
 .summary-box__stats-list {
+  flex-grow: 1;
   margin-bottom: 40px;
 }
 
